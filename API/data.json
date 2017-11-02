@@ -1,0 +1,48 @@
+{
+	"banner": [
+		{
+			"url": "./public/images/l1.jpg"
+		}, {
+			"url": "./public/images/l2.jpg"
+		}, {
+			"url": "./public/images/l3.jpg"
+		}, {
+			"url": "./public/images/l4.jpg"
+		}, {
+			"url": "./public/images/l5.jpg"
+		}, {
+			"url": "./public/images/l6.jpg"
+		}, {
+			"url": "./public/images/l7.jpg"
+		}, {
+			"url": "./public/images/l8.jpg"
+		}
+	],
+	"nav": [
+		{
+			"url": "./public/images/nav0.png",
+			"title": "京东超市"
+		}, {
+			"url": "./public/images/nav1.png",
+			"title": "全球购"
+		}, {
+			"url": "./public/images/nav2.png",
+			"title": "京东服饰"
+		}, {
+			"url": "./public/images/nav3.png",
+			"title": "京东生鲜"
+		}, {
+			"url": "./public/images/nav4.png",
+			"title": "京东到家"
+		}, {
+			"url": "./public/images/nav5.png",
+			"title": "充值缴费"
+		}, {
+			"url": "./public/images/nav6.png",
+			"title": "领金豆"
+		}, {
+			"url": "./public/images/nav7.png",
+			"title": "领券"
+		}
+	]
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh" ng-app="app">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<script>
+			document.querySelector("html").style.fontSize = window.innerWidth / 20 + "px";
+		</script>
+		<link rel="stylesheet/less" type="text/css" href="./public/css/base.less" />
+		<link rel="stylesheet/less" type="text/css" href="./public/css/main.less" />
+		<script src="./public/js/less.js"></script>
+		<script src="node_modules/jquery/dist/jquery.min.js"></script>
+		<script src="./public/js/angular.min.js"></script>
+		<script src="./public/js/main.js"></script>
+		<title>WebApp JD</title>
+	</head>
+
+	<body>
+		<!--搜索栏-->
+		<div class="search">
+			<span></span>
+			<form action="">
+				<i></i>
+				<input type="text" placeholder="淘宝一下，你就购了" />
+			</form>
+			<a href="">登录</a>
+		</div>
+		<!--用一个控制器-->
+		<div ng-controller="ec">
+			<!--banner-->
+			<div class="banner">
+				<ul>
+					<li ng-repeat="(key,value) in banner"><img src="{{banner[key].url}}" alt="" /></li>
+				</ul>
+			</div>
+			<!--导航栏-->
+			<div class="nav clearfix">
+				<ul>
+					<li ng-repeat="(key,value) in nav">
+						<a href="">
+							<img src="{{nav[key].url}}" alt="" />
+							<p>{{nav[key].title}}</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!--商品-->
+			<div class="shop">
+				<div>
+					<div class="miaosha clearfix" >
+						<i></i>
+						<span>掌上秒杀</span>
+						<ul>
+							<li>0</li>
+							<li>0</li>
+							<li>:</li>
+							<li>0</li>
+							<li>0</li>
+							<li>:</li>
+							<li>0</li>
+							<li>0</li>
+						</ul>
+						<a href="">更多></a>
+					</div>
+					<div class="shopimg">
+						<ul>
+							<li>
+								<img src="public/images/detail01.jpg" alt="" />
+								<p>￥998</p>
+								<del>￥1099</del>
+							</li>
+							<li>
+								<img src="public/images/detail01.jpg" alt="" />
+								<p>￥998</p>
+								<del>￥1099</del>
+							</li>
+							<li>
+								<img src="public/images/detail01.jpg" alt="" />
+								<p>￥998</p>
+								<del>￥1099</del>
+							</li>
+							<li>
+								<img src="public/images/detail01.jpg" alt="" />
+								<p>￥998</p>
+								<del>￥1099</del>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
