@@ -1,6 +1,8 @@
 {
 	"banner": [
 		{
+			"url": "./public/images/l8.jpg"
+		}, {
 			"url": "./public/images/l1.jpg"
 		}, {
 			"url": "./public/images/l2.jpg"
@@ -16,6 +18,8 @@
 			"url": "./public/images/l7.jpg"
 		}, {
 			"url": "./public/images/l8.jpg"
+		}, {
+			"url": "./public/images/l1.jpg"
 		}
 	],
 	"nav": [
