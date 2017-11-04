@@ -48,5 +48,40 @@
 			"url": "./public/images/nav7.png",
 			"title": "领券"
 		}
+	],
+	"shopimg": [
+		{
+			"src": "public/images/detail01.jpg",
+			"now": "988",
+			"old": "1588"
+		}, {
+			"src": "public/images/detail02.jpg",
+			"now": "4988",
+			"old": "8888"
+		}, {
+			"src": "public/images/detail01.jpg",
+			"now": "1988",
+			"old": "15088"
+		}, {
+			"src": "public/images/detail02.jpg",
+			"now": "488",
+			"old": "888"
+		}, {
+			"src": "public/images/detail01.jpg",
+			"now": "88",
+			"old": "188"
+		}, {
+			"src": "public/images/detail02.jpg",
+			"now": "40988",
+			"old": "80888"
+		}, {
+			"src": "public/images/detail01.jpg",
+			"now": "9088",
+			"old": "15088"
+		}, {
+			"src": "public/images/detail02.jpg",
+			"now": "49808",
+			"old": "88808"
+		}
 	]
 }

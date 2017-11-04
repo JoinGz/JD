@@ -13,7 +13,7 @@
 		<script src="./public/js/less.js"></script>
 		<script src="node_modules/jquery/dist/jquery.min.js"></script>
 		<script src="./public/js/angular.min.js"></script>
-		<script src="./public/js/main.js"></script>
+		<script src="./public/js/angularjs.js"></script>
 		<title>WebApp JD</title>
 	</head>
 
@@ -31,7 +31,7 @@
 		<div ng-controller="ec">
 			<!--banner-->
 			<div class="banner">
-				<ul>
+				<ul class="clearfix"> 
 					<li ng-repeat="(key,value) in banner"><img src="{{banner[key].url}}" alt="" /></li>
 				</ul>
 			</div>
@@ -65,27 +65,13 @@
 						<a href="">更多></a>
 					</div>
 					<div class="shopimg">
-						<ul>
-							<li>
-								<img src="public/images/detail01.jpg" alt="" />
-								<p>￥998</p>
-								<del>￥1099</del>
+						<ul class="touchMove clearfix">
+							<li ng-repeat="(key,vaule) in shopimg">
+								<img src="{{shopimg[key].src}}" alt="" />
+								<p>￥{{shopimg[key].now}}</p>
+								<del>￥{{shopimg[key].old}}</del>
 							</li>
-							<li>
-								<img src="public/images/detail01.jpg" alt="" />
-								<p>￥998</p>
-								<del>￥1099</del>
-							</li>
-							<li>
-								<img src="public/images/detail01.jpg" alt="" />
-								<p>￥998</p>
-								<del>￥1099</del>
-							</li>
-							<li>
-								<img src="public/images/detail01.jpg" alt="" />
-								<p>￥998</p>
-								<del>￥1099</del>
-							</li>
+							
 						</ul>
 					</div>
 					
@@ -107,5 +93,5 @@
 			</div>
 		</div>
 	</body>
-
+	<script src="./public/js/main.js"></script>
 </html>

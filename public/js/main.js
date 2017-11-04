@@ -1,22 +1,8 @@
-var app = angular.module("app", []);
-//屏幕宽度
-var screenWidth = window.innerWidth;
-app.controller("ec", ["$http", "$scope", function($http, $scope) {
-	$http({
-		url: "./API/main.php",
-	}).success(function(info) {
-		$scope.banner = info.banner;
-		$scope.nav = info.nav;
-		//		var width = screenWidth*info.banner.length;
-		//		$(".banner ul").eq(0).css({"width":width});
-		$(".banner ul").css("transform", "translateX(" + (-window.innerWidth) + "px)");
-
-	})
-}])
-
 $(document).ready(function() {
+	screenWidth = window.innerWidth;
 	var screenScroll;
 	banner(".banner ul");
+	touchMove(".touchMove");
 	$(window).on("scroll", function() {
 		screenScroll = $(window).scrollTop();
 		changBg("#search", screenScroll, "#nav");
@@ -33,7 +19,7 @@ function changBg(ele, sS, ele2) {
 	}
 	$(ele).css("background", "rgba(201, 21, 35," + num + ")");
 }
-
+//banner图
 function banner(ele) {
 	//ele 父盒子 
 	//触摸开始
@@ -42,13 +28,11 @@ function banner(ele) {
 	var moveX = 0;
 
 	//n=index,从1开始
-	//屏幕宽度
-
 	var n = 1;
 	var time = setInterval(function() {
 		$(ele).css("transition", "all 0.3s");
 		n++;
-		var move = (-window.innerWidth * n);
+		var move = (-screenWidth * n);
 		$(ele).css("transform", "translateX(" + move + "px)");
 
 	}, 2000)
@@ -57,32 +41,32 @@ function banner(ele) {
 		if(n > 8) {
 			n = 1;
 			$(ele).css("transition", "");
-			var move = (-window.innerWidth * n);
+			var move = (-screenWidth * n);
 			$(ele).css("transform", "translateX(" + move + "px)");
 		} else if(n < 1) {
 			n = 8;
 			$(ele).css("transition", "");
-			var move = (-window.innerWidth * n);
+			var move = (-screenWidth * n);
 			$(ele).css("transform", "translateX(" + move + "px)");
 		}
 	})
 	$(ele)[0].addEventListener("touchstart", function(event) {
 		clearInterval(time);
 		startX = event.touches[0].clientX;
-		console.log("kaishi");
+		
 
 	})
 	$(ele)[0].addEventListener("touchmove", function(event) {
+		event.preventDefault();
 		clearInterval(time);
 		$(ele).css("transition", "");
 		moveX = event.touches[0].clientX - startX;
 		$(ele).css("transform", "translateX(" + (moveX + screenWidth * -n) + "px)");
-		console.log("yidong")
+		
 
 	})
 	$(ele)[0].addEventListener("touchend", function(event) {
 		var aim = screenWidth / 3;
-		console.log("end")
 		if(Math.abs(moveX) < aim) {
 			$(ele).css("transition", "all 0.3s");
 			$(ele).css("transform", "translateX(" + (screenWidth * -n) + "px)");
@@ -100,7 +84,7 @@ function banner(ele) {
 		time = setInterval(function() {
 			$(ele).css("transition", "all 0.3s");
 			n++;
-			var move = (-window.innerWidth * n);
+			var move = (-screenWidth * n);
 			$(ele).css("transform", "translateX(" + move + "px)");
 
 		}, 2000)
@@ -108,3 +92,48 @@ function banner(ele) {
 	})
 
 }
+//touchMove
+var smallboxwidth = $(".touchMove").children("li").outerWidth();
+function touchMove(ele) {
+	//ele 父盒子 
+	//触摸开始
+	var startX = 0;
+	//移动距离 
+	var moveX = 0;
+	//结束位置
+	var endX = 0;
+	//盒子宽度
+	var boxwidth = $(ele).outerWidth()-smallboxwidth *4;
+	console.log(boxwidth)
+	$(ele)[0].addEventListener("touchstart", function(event) {
+		$(ele).css("transition", "");
+		startX = event.touches[0].clientX;
+		
+
+	})
+	$(ele)[0].addEventListener("touchmove", function(event) {
+		event.preventDefault();
+		moveX = event.touches[0].clientX - startX;
+		if(moveX>screenWidth/3){
+			moveX=screenWidth/3
+		}
+		$(ele).css("transform", "translateX(" + (moveX + endX )+ "px)");
+		
+
+	})
+	$(ele)[0].addEventListener("touchend", function(event) {
+		endX += moveX ;
+		if(endX>0){
+			$(ele).css("transition", "all 0.3s");
+			$(ele).css("transform", "translateX(0px)");
+			endX=0;
+		}else if(endX<-boxwidth){
+			$(ele).css("transition", "all 0.3s");
+			$(ele).css("transform", "translateX(" + -boxwidth + "px)");
+			endX=-boxwidth;
+		}
+	})
+
+}
+
+	
