@@ -57,7 +57,7 @@ function banner(ele) {
 
 	})
 	$(ele)[0].addEventListener("touchmove", function(event) {
-		event.preventDefault();
+		
 		clearInterval(time);
 		$(ele).css("transition", "");
 		moveX = event.touches[0].clientX - startX;
@@ -112,7 +112,7 @@ function touchMove(ele) {
 
 	})
 	$(ele)[0].addEventListener("touchmove", function(event) {
-		event.preventDefault();
+		
 		moveX = event.touches[0].clientX - startX;
 		if(moveX>screenWidth/3){
 			moveX=screenWidth/3
